@@ -1,0 +1,29 @@
+import Foundation
+
+
+func longestPalindrome(_ inputString: String) -> Int {
+        
+        var countDict = [String:Int]()
+        for  c in inputString {
+            let cString = String(c)
+            if(countDict[cString] == nil){
+                countDict[cString] =  1
+            } else {
+                countDict[cString]!+=1
+                
+            }
+        }
+        var palindromeCount = 0
+        for (_,v) in countDict {
+            palindromeCount += v / 2 * 2
+            if(palindromeCount%2 == 0 && v % 2 == 1){
+                palindromeCount+=1
+            }
+        }
+        
+        return palindromeCount
+        
+    }
+
+let length = longestPalindrome("Abbccda")
+print("The length of longest palindrome string is", length)
