@@ -1,0 +1,21 @@
+import Foundation
+
+let text = "(()())(())"
+
+print(removeOuterParentheses(S: text))
+    
+func removeOuterParentheses( S : String) -> String{
+        var res = "";
+        var counter = 0;
+        for  c in S {
+            if counter != 0 && !(counter == 1 && c == ")") {
+                res += String(c)
+            }
+            if c == "(" {
+                counter += 1
+            } else {
+                counter -= 1
+            }
+        }
+        return res;
+}
